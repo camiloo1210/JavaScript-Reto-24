@@ -63,6 +63,33 @@
             <p>&copy; 2024 Brand. All rights reserved.</p>
         </div>
     </footer>
+    <style>
+        .fixed-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <script>
+        const nav = document.querySelector('.navbar');
+        let topOfNav = nav.offsetTop;
+
+        function fixNav() {
+            if (window.scrollY >= topOfNav) {
+                document.body.style.paddingTop = nav.offsetHeight + 'px';
+                nav.classList.add('fixed-nav');
+            } else {
+                document.body.style.paddingTop = 0;
+                nav.classList.remove('fixed-nav');
+            }
+        }
+
+        window.addEventListener('scroll', fixNav);
+    </script>
 </body>
 
 </html>
